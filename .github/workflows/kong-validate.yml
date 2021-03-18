@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: wget -o kong.deb https://bintray.com/kong/kong-deb/download_file?file_path=kong-2.3.3.focal.amd64.deb
-      - run: ls -ltr
-      - run: sudo apt-get update
+      - run: wget -o bintray.key https://bintray.com/user/downloadSubjectPublicKey?username=bintray
+      - run: sudo apt-key add bintray.key && apt-get update
       - run: sudo apt-get install -y ${PWD}/kong.deb
       - run: KONG_DATABASE=off kong config parse kong.yml 
