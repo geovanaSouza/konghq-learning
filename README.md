@@ -11,3 +11,7 @@ Arquivo declarativo de configuração das rotas, services e plugins. Este arquiv
 Geração do kong.yml (Necessário que a propriedade database esteja off no kong.conf
 
 ``` KONG_DATABASE=off kong config init ```
+
+Validação de sintaxe do arquivo:
+
+``` KONG_DATABASE=off kong config parse kong.yml ```

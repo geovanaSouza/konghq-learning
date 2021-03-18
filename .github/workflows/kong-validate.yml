@@ -1,0 +1,10 @@
+name: kong-validate
+on: [push]
+jobs:
+  kong-yml-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: wget -o kong.deb https://bintray.com/kong/kong-deb/download_file?file_path=kong-2.3.3.focal.amd64.deb
+      - run: ls -ltr
+      - run: sudo apt-get install -y kong.deb
+      - run: KONG_DATABASE=off kong config parse kong.yml 
