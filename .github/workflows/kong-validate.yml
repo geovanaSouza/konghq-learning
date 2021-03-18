@@ -6,5 +6,6 @@ jobs:
     steps:
       - run: wget -o kong.deb https://bintray.com/kong/kong-deb/download_file?file_path=kong-2.3.3.focal.amd64.deb
       - run: ls -ltr
+      - run: sudo apt-get update
       - run: sudo apt-get install -y ${PWD}/kong.deb
       - run: KONG_DATABASE=off kong config parse kong.yml 
